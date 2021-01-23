@@ -73,7 +73,7 @@ https://sites.google.com/site/5kk73gpu2012/assignment/viola-jones-face-detection
 
 
 def main():
-    st.title("Face Detection App :sunglasses: ")
+    st.title("Face Detection App :bread: ")
     st.write("**Using the Haar cascade Classifiers**")
 
     activities = ["Home", "About"]
