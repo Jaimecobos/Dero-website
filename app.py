@@ -13,20 +13,7 @@ def detect(image):
 def about():
 	st.write(
 		'''
-		**Haar Cascade** is an object detection algorithm.
-		It can be used to detect objects in images or videos. 
-
-		The algorithm has four stages:
-
-			1. Haar Feature Selection 
-			2. Creating  Integral Images
-			3. Adaboost Training
-			4. Cascading Classifiers
-
-
-
-Read more :point_right: https://docs.opencv.org/2.4/modules/objdetect/doc/cascade_classification.html
-https://sites.google.com/site/5kk73gpu2012/assignment/viola-jones-face-detection#TOC-Image-Pyramid
+		yo
 		''')
 
 
@@ -52,9 +39,9 @@ def main():
                 
                 # result_img is the image with rectangle drawn on it (in case there are bread detected)
                 # result_faces is the array with co-ordinates of bounding box(es)
-    			result_img, result_faces = detect(image=image)
+    			result_img, result_bread = detect(image=image)
     			st.image(result_img, use_column_width = True)
-    			st.success("Found {} faces\n".format(len(result_faces)))
+    			st.success("Found {} bread\n".format(len(result_bread)))
 
     elif choice == "About":
     	about()
