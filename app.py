@@ -31,8 +31,8 @@ https://sites.google.com/site/5kk73gpu2012/assignment/viola-jones-face-detection
 
 
 def main():
-    st.title("Face Detection App :bread: ")
-    st.write("**Using the Haar cascade Classifiers**")
+    st.title("Bread Detection App :bread: ")
+    st.write("**Bounding box detection using keras and tenserflow**")
 
     activities = ["Home", "About"]
     choice = st.sidebar.selectbox("Pick something fun", activities)
@@ -50,7 +50,7 @@ def main():
 
     		if st.button("Process"):
                 
-                # result_img is the image with rectangle drawn on it (in case there are faces detected)
+                # result_img is the image with rectangle drawn on it (in case there are bread detected)
                 # result_faces is the array with co-ordinates of bounding box(es)
     			result_img, result_faces = detect(image=image)
     			st.image(result_img, use_column_width = True)
