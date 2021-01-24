@@ -1,0 +1,11 @@
+
+\.idea/
+*.pyc
+
+docker/pip/
+
+trained_models_save/
+
+VGG_weights/
+
+data/
