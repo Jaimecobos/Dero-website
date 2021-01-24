@@ -18,7 +18,7 @@ def about():
 
 
 def main():
-    st.title("Bread Detection App :bread: ")
+    st.title("Bread Detection App :sunglasses: ")
     st.write("**Bounding box detection using keras and tenserflow**")
 
     activities = ["Home", "About"]
