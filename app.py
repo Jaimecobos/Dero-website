@@ -41,7 +41,7 @@ def main():
 			if st.button("Process"):
 				result_img = load_image (image_file)
 				st.image(result_img, use_column_width = True)
-				st.success("Found {} bread\n".format(len(result_bread)))
+				st.success("Found {} bread\n".format(len(result_image)))
 
 	elif choice == "About":
 		about()
