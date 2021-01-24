@@ -23,6 +23,10 @@ def about():
 		An assignment that is possible due to the Minor Smart Robot Manufacturing. Due to the corona lockdown the assignment was focused on the machine learning aspect of detecting a bread.
 		''')
 
+def load_image(image_file):
+	img = Image.open(image_file)
+	return img
+
 def main():
 	st.title("Bread Detection App :Bread: ")
 	st.write("**Bounding box detection using keras and tenserflow**")
@@ -39,9 +43,9 @@ def main():
 			image = Image.open(image_file)
 
 			if st.button("Process"):
-				result_img = load_image (image_file)
-				st.image(result_img, use_column_width = True)
-				st.success("Found {} bread\n".format(len(result_image)))
+				image = load_image(image_file)
+				st.image(image, use_column_width = True)
+				st.success("Found {} bread\n".format(len(image)))
 
 	elif choice == "About":
 		about()
