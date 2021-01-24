@@ -1,16 +1,12 @@
 
-try:
-	import streamlit as st
-	import cv2
-	import pandas as pd
-	import numpy as np
-	import os
-	import sys
-	from PIL import Image
-	from io import BytesIO,StringIO
-	print("All Modules Loaded  ")
-except Exception as e:
-	print("Some modules are missing : {} ".format(e))
+import streamlit as st
+import cv2
+import pandas as pd
+import numpy as np
+import os
+import sys
+from PIL import Image
+from io import BytesIO,StringIO
 
 def detect(image):
 
