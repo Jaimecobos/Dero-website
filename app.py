@@ -12,8 +12,6 @@ try:
 except Exception as e:
 	print("Some modules are missing : {} ".format(e))
 
-try:
-
 def detect(image):
 
     # Returning the image with bounding boxes drawn on it (in case of detected objects), and bounding box array
