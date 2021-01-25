@@ -3,6 +3,8 @@ import streamlit as st
 import cv2
 import numpy as np
 import os
+import sys
+import requests
 from PIL import Image
 
 def detect(image):
@@ -15,10 +17,6 @@ def about():
 		'''
 		An assignment that is possible due to the Minor Smart Robot Manufacturing. Due to the corona lockdown the assignment was focused on the machine learning aspect of detecting a bread.
 		''')
-
-def load_image(image_file):
-	img = Image.open(image_file)
-	return img
 
 def main():
 	st.title("Bread Detection App :Bread: ")
@@ -33,11 +31,15 @@ def main():
 		# Specify the files types.
 		image_file = st.file_uploader("Upload image", type=['jpeg', 'png', 'jpg', 'webp'])
 		if image_file is not None:
-			image = Image.open(image_file)
+
+			images = []
+			with Image.open(image_file) as img:
+				images.append(np.array(img, dtype=np.uint8))
+				images = np.array(images)
 
 			if st.button("Process"):
-				image = load_image(image_file)
-				st.image(image, use_column_width = True)
+				response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()})
+				st.image(image_file, use_column_width=True)
 				# st.success("Found {} bread\n".format(len(image)))
 
 	elif choice == "Dataset":
