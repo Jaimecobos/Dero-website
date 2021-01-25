@@ -38,10 +38,13 @@ def main():
 				images = np.array(images)
 
 			if st.button("Process"):
-				response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()})
-				st.image(image_file, use_column_width=True)
+				try:
+					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()})
+					print(np.array(response.get('detections')).shape)
+					st.image(image_file, use_column_width=True)
 				# st.success("Found {} bread\n".format(len(image)))
-
+				except:
+					st.write("Failed to connect to processing server.")
 	elif choice == "Dataset":
 		Dataset()
 
