@@ -1,12 +1,9 @@
 
 import streamlit as st
 import cv2
-import pandas as pd
 import numpy as np
 import os
-import sys
 from PIL import Image
-from io import BytesIO,StringIO
 
 def detect(image):
 
