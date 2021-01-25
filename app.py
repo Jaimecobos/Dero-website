@@ -40,9 +40,13 @@ def main():
 			if st.button("Process"):
 				try:
 					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()})
-					print(np.array(response.get('detections')).shape)
-					st.image(image_file, use_column_width=True)
-				# st.success("Found {} bread\n".format(len(image)))
+					if response.status_code == requests.code.ok:
+						print(np.array(response.get('detections')).shape)
+						st.image(image_file, use_column_width=True)
+						# st.success("Found {} bread\n".format(len(image)))
+					else:
+						st.write("Processing server returned status code {}".format(response.status_code))
+
 				except:
 					st.write("Failed to connect to processing server.")
 	elif choice == "Dataset":
