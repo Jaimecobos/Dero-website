@@ -41,7 +41,10 @@ def main():
 			if st.button("Process"):
 				image = load_image(image_file)
 				st.image(image, use_column_width = True)
-				st.success("Found {} bread\n".format(len(image)))
+				# st.success("Found {} bread\n".format(len(image)))
+
+	elif choice == "Dataset":
+		Dataset()
 
 	elif choice == "About":
 		about()
