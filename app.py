@@ -50,8 +50,7 @@ def main():
 						# st.success("Found {} bread\n".format(len(image)))
 					else:
 						st.write("Processing server returned status code {}".format(response.status_code))
-
-				except:
+				except requests.exceptions.Timeout:
 					st.write("Failed to connect to processing server.")
 	elif choice == "Dataset":
 		Dataset()
