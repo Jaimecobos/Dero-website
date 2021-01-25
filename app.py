@@ -84,7 +84,7 @@ def main():
 					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()}, timeout=3.05)
 					if response.status_code == 200:
 						detections = np.array(response.json().get('detections'))
-						processed_image = visualize(image_file, detections)
+						processed_image = visualize(images[0], detections)
 						st.pyplot(fig=processed_image)
 						# st.success("Found {} bread\n".format(len(image)))
 					else:
