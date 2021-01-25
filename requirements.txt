@@ -1,6 +1,6 @@
 streamlit
 opencv-contrib-python-headless
-numpy>=1.18.5
-keras
-tensorflow>=1.x
-Pillow
+#numpy>=1.18.5
+#keras
+#tensorflow>=1.x
+#Pillow
