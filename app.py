@@ -44,7 +44,8 @@ def main():
 				try:
 					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()}, timeout=3.05)
 					if response.status_code == requests.code.ok:
-						print(np.array(response.get('detections')).shape)
+						detections = np.array(response.json().get('detections'))
+						print(detections.shape)
 						st.image(image_file, use_column_width=True)
 						# st.success("Found {} bread\n".format(len(image)))
 					else:
