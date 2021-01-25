@@ -6,6 +6,7 @@ import os
 import sys
 import requests
 from PIL import Image
+from visualization import visualize
 
 
 def detect(image):
@@ -45,8 +46,8 @@ def main():
 					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()}, timeout=3.05)
 					if response.status_code == 200:
 						detections = np.array(response.json().get('detections'))
-						print(detections.shape)
-						st.image(image_file, use_column_width=True)
+						processed_image = visualize(image_file, detections)
+						st.pyplot(fig=processed_image)
 						# st.success("Found {} bread\n".format(len(image)))
 					else:
 						st.write("Processing server returned status code {}".format(response.status_code))
