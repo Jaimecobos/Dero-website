@@ -62,9 +62,9 @@ def about():
 
 def main():
 	st.title("Bread Detection App :Bread: ")
-	st.write("**Bounding box detection using keras and tenserflow**")
+	st.write("**Rotated Bounding Box detection using Keras and TensorFlow**")
 
-	activities = ["Home", "Dataset", "About"]
+	activities = ["Home", "About"]
 	choice = st.sidebar.selectbox("Pick something", activities)
 
 	if choice == "Home":
@@ -86,16 +86,13 @@ def main():
 						detections = np.array(response.json().get('detections'))
 						processed_image = visualize(images[0], detections)
 						st.pyplot(fig=processed_image)
-						# st.success("Found {} bread\n".format(len(image)))
 					else:
 						st.write("Processing server returned status code {}".format(response.status_code))
 				except requests.Timeout:
 					st.write("Failed to connect to processing server.")
-	elif choice == "Dataset":
-		Dataset()
-
 	elif choice == "About":
 		about()
+
 
 if __name__ == "__main__":
 	main()
