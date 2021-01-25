@@ -7,16 +7,19 @@ import sys
 import requests
 from PIL import Image
 
+
 def detect(image):
 
 	# Returning the image with bounding boxes drawn on it (in case of detected objects), and bounding box array
 	return image
+
 
 def about():
 	st.write(
 		'''
 		An assignment that is possible due to the Minor Smart Robot Manufacturing. Due to the corona lockdown the assignment was focused on the machine learning aspect of detecting a bread.
 		''')
+
 
 def main():
 	st.title("Bread Detection App :Bread: ")
@@ -39,7 +42,7 @@ def main():
 
 			if st.button("Process"):
 				try:
-					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()})
+					response = requests.post(os.environ['API_URL'] + '/drbox/predict', json={'image': images.tolist()}, timeout=3.05)
 					if response.status_code == requests.code.ok:
 						print(np.array(response.get('detections')).shape)
 						st.image(image_file, use_column_width=True)
