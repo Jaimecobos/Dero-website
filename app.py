@@ -94,7 +94,9 @@ def main():
 					st.write("Failed to connect to processing server.")
 	elif choice == "About":
 		about()
-
+		
+img1 = Image.open("Dero.jpg")
+st.image(img1, use_column_width = True)
 
 if __name__ == "__main__":
 	main()
