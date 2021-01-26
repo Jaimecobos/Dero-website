@@ -59,11 +59,11 @@ def about():
 		An assignment that is possible due to the Minor Smart Robot Manufacturing. Due to the corona lockdown the assignment was focused on the machine learning aspect of detecting a bread.
 		''')
 	
-img1 = Image.open("dero.png")
+img1 = Image.open("Dero.jpg")
 st.image(img1, use_column_width = True)
 
 def main():
-	st.title("Bread Detection App ")
+	st.title("Bread Detection App")
 	st.write("**Rotated Bounding Box detection using Keras and TensorFlow**")
 
 	activities = ["Home", "About"]
